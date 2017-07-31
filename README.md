@@ -1,0 +1,1 @@
+# ember-addon-example
