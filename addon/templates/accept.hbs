@@ -1,0 +1,49 @@
+<div class="tta-modal tta-modal--full-screen">
+  {{#tta-topbar as |bar|}}
+    {{#bar.title}}
+      <img src="https://static.ticketfly.com/images/rebrand/account/tflyLogo@2x.png" width="102px" height="15px" alt="Ticketfly Logo">
+    {{/bar.title}}
+  {{/tta-topbar}}
+
+
+  <div class="tta-modal-main flex flex--justify-center {{if media.isMobile "padding-sides-2"}}">
+    <div class="content-row-belt flex--shrink-1 flex--grow-0 flex--large-belt-basis margin-top-4 flex flex--column flex--align-stretch skeleton-container">
+      {{#tta-if-resolved model as |data|}}
+        {{tta-accept-header class="margin-bottom-4 text-align-center text-n8" transfer=data.transfer}}
+      {{else}}
+        <h2 class="margin-bottom-4 text-align-center text-n8">
+          <div class="skeleton-element skeleton-element__h3 skeleton-element__inline margin-bottom-1 skeleton-element__dark"></div>
+          <br>
+          <div class="skeleton-element skeleton-element__h3 skeleton-element__inline margin-bottom-1 skeleton-element__w5 skeleton-element__dark"></div>
+        </h2>
+      {{/tta-if-resolved}}
+
+      <div class="card shady">
+        <ul class="no-bullet margin-bottom-0">
+          <li data-test={{hook "tta_accept_event_table"}}>
+            {{#tta-if-resolved model as |data|}}
+              {{tta-event-info
+                event=data.event
+                class=(concat "padding-ends-4 border-bottom border-n2 padding-sides-" (if media.isMobile "4" "6"))}}
+
+              {{!-- Use a copy of the tickets array so that ember-data changes don't have side effects on the components. --}}
+              {{#with (array-copy data.tickets) as |tickets|}}
+                {{#liquid-if data.transfer.isAcceptable use="cross-fade"}}
+                  {{tta-accept tickets=tickets}}
+                {{else}}
+                  {{tta-accept-completed-tickets tickets=tickets transfer=data.transfer}}
+                {{/liquid-if}}
+              {{/with}}
+            {{else}}
+              {{tta-accept-event-info-skeleton}}
+              {{tta-accept-ticket-row-skeleton class=(concat "padding-ends-4 thin-bordered-child margin-sides-" (if media.isMobile "4" "6"))}}
+              {{tta-accept-ticket-row-skeleton class=(concat "padding-ends-4 thin-bordered-child margin-sides-" (if media.isMobile "4" "6"))}}
+            {{/tta-if-resolved}}
+          </li>
+        </ul>
+      </div>
+
+      {{liquid-outlet use="cross-fade" class="overflow-visible" containerless=true}}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.overflow-visible {
+  overflow: visible;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.relative {
+  position: relative;
+}
+
+.horizontally-centered {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.margin-left-5 {
+  margin-left: 1.2rem;
+}
+
+.margin-bottom-0 {
+  margin-bottom: 0;
+}
+
+.margin-bottom-5rem {
+  margin-bottom: 5rem;
+}
+
+.margin-top-3rem {
+  margin-top: 3rem;
+}
+
+.margin-sides-0 {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.padding-0 {
+  padding: 0;
+}
+
+.padding-6 {
+  padding: 0.6rem;
+}
+
+.vertical-align-top {
+  vertical-align: top;
+}
+
+.offset-to-left {
+  position: absolute;
+  left: -1.2rem;
+}
+
+.full-screen-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+}
+
+.modal-offset-top-10 {
+  padding-top: 10%;
+}

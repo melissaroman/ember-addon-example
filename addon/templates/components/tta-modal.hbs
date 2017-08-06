@@ -1,0 +1,11 @@
+{{liquid-wormhole
+  stack="tta-confirmation-modal-overlay"
+  class="full-screen-modal background-black opacity-05"}}
+
+{{#liquid-wormhole
+  class=(concat "flex flex--justify-center flex--align-start full-screen-modal overflow-auto " (unless media.isMobile "modal-offset-top-10"))
+  stack="tta-confirmation-modal-container"}}
+  {{#tta-confirmation-modal}}
+    {{yield}}
+  {{/tta-confirmation-modal}}
+{{/liquid-wormhole}}

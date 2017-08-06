@@ -1,0 +1,6 @@
+{{yield (hash
+  selected=selectedItems
+  not-selected=(without selectedItems allItemsList)
+  all-items=allItemsList
+  toggle=(action "toggleItem")
+)}}

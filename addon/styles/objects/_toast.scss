@@ -1,0 +1,25 @@
+.tta-toast-modal-desktop {
+  position: fixed;
+  top: 0;
+  left: 50%;
+}
+
+.tta-toast-modal-mobile {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+}
+
+.tta-toast-desktop {
+  min-width: 345px;
+  transform: translateX(-50%);
+}
+
+.tta-toast-mobile {
+  width: 100%;
+}
+
+.tta-toast--button {
+  position: relative;
+  top: 2px;
+}

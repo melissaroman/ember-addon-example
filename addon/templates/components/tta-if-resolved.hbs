@@ -1,0 +1,5 @@
+{{#liquid-if (or (not resolveTask.lastSuccessful) resolveTask.isRunning) use="cross-fade"}}
+  {{yield to="inverse"}}
+{{else}}
+  {{yield resolveTask.lastSuccessful.value}}
+{{/liquid-if}}

@@ -1,0 +1,21 @@
+{{#each-in (group-by "variantName" tickets) as |variantName tickets|}}
+  <div class="padding-sides-4 padding-ends-2 thin-bordered-child text-n3">
+    <div class="row small-collapse align-middle margin-sides-0">
+      <div class="column expand">
+        <div data-test={{hook "tta_accept_complete_ticket_row_variant_name"}}>
+          <strong>{{tickets.length}} x {{variantName}}</strong>
+        </div>
+        <div data-test={{hook "tta_accept_complete_ticket_row_sent_by"}}>
+          {{t "accept_transfer.sent_by" name=(or transfer.sender.firstName transfer.sender.email)}}
+        </div>
+      </div>
+      {{#unless transfer.isPending}}
+        <div class="column shrink">
+          <span data-test={{hook "tta_accept_complete_ticket_row_status"}}>
+            {{t (concat "accept_transfer.transfer_states" "." transfer.status)}}
+          </span>
+        </div>
+      {{/unless}}
+    </div>
+  </div>
+{{/each-in}}

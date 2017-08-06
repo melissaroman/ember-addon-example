@@ -1,0 +1,77 @@
+.skeleton-container {
+  position: relative;
+  box-sizing: border-box;
+}
+
+.skeleton-element {
+  background: $n1;
+  display: block;
+  height: 1em;
+}
+
+.skeleton-element__dark {
+  background: $n2;
+}
+
+.skeleton-element__image {
+  width: 60%;
+  max-width: 12rem;
+  height: 7rem;
+}
+
+.skeleton-element__h2 {
+  width: 70%;
+  max-width: 15rem;
+  height: 1.5rem;
+}
+
+.skeleton-element__h3 {
+  width: 70%;
+  max-width: 15rem;
+  height: 1.2rem;
+}
+
+.skeleton-element__p {
+  width: 56.66667%;
+  max-width: 14rem;
+  height: 0.7rem;
+}
+
+.skeleton-element__inline {
+  display: inline-block;
+}
+
+.skeleton-element__w1 {
+  width: 50%;
+  max-width: 9rem;
+}
+
+.skeleton-element__w2 {
+  width: 60%;
+  max-width: 12rem;
+}
+
+.skeleton-element__w3 {
+  width: 70%;
+  max-width: 15rem;
+}
+
+.skeleton-element__w4 {
+  width: 80%;
+  max-width: 18rem;
+}
+
+.skeleton-element__w5 {
+  width: 90%;
+  max-width: 21rem;
+}
+
+.skeleton-element__w5 {
+  width: 90%;
+  max-width: 21rem;
+}
+
+.skeleton-element__w8 {
+  width: 100%;
+  max-width: 30rem;
+}

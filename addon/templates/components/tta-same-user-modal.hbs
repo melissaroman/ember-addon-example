@@ -1,0 +1,19 @@
+<div class="padding-4 text-align-center">
+  <h2 class="text-large-4 text-n8 horizontally-centered margin-bottom-0 margin-top-3rem">
+    {{t "accept_transfer.accept_tickets_already_belong_to_you"}}
+  </h2>
+  <p class="margin-top-7 margin-bottom-5rem semi-bold">
+    <span class="text-i5" data-test={{hook "same_user_modal_email"}}>
+      {{email}}
+    </span>
+  </p>
+  <div class="flex">
+    <button
+      class="button margin-bottom-0 flex--grow-1"
+      disabled={{buttonIsDisabled}}
+      onclick={{action "switchAccounts"}}
+      data-test={{hook "same_user_modal_switch_accounts"}}>
+      {{t "accept_transfer.switch_accounts"}}
+    </button>
+  </div>
+</div>

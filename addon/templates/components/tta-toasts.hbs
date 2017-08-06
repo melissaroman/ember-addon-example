@@ -1,0 +1,19 @@
+{{#if flashMessages.queue}}
+  {{#liquid-wormhole
+    class=(concat "flex flex--column flex--justify-center flex--align-center tta-toast-modal-" (if media.isMobile "mobile" "desktop"))
+    stack="tta-toast-modal-tether"}}
+
+    {{#each flashMessages.queue as |flash|}}
+      {{#with (if (eq flash.type "success") "background-g5" "background-r5") as |background|}}
+        <div class="{{if media.isMobile "tta-toast-mobile" "border-radius tta-toast-desktop"}} {{background}} {{if (eq flash.type "success") "text-g8" "text-white"}} padding-2 flex flex--align-center flex--justify-between margin-bottom-3"
+          data-test={{hook "tta_toast"}}>
+          <span class="tta-toast--message text-large-1 semi-bold">{{flash.message}}</span>
+          <button class="tta-toast--button" {{action "clearMessage" flash}}>
+            <i class="tta-toast--icon tf-x text-size-icon-small margin-left-10 {{if (eq flash.type "success") "text-g8" "text-white"}}"></i>
+          </button>
+        </div>
+      {{/with}}
+    {{/each}}
+
+  {{/liquid-wormhole}}
+{{/if}}

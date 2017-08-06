@@ -1,0 +1,439 @@
+.liquid-container {
+    position: relative;
+    overflow: hidden;
+
+    /* without this, overflow:hidden won't take effect because the things
+       we're trying to hide are on a separate accelerated
+       context. Also, this prevents a tiny vertical jump when the
+       content switches to accelerated.  */
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    transform: translateY(0);
+}
+
+.liquid-child {
+    overflow: hidden; /* Prevent margin collapse */
+}
+
+.default-liquid-destination {
+  position: absolute;
+  top: 0;
+
+  width: 100%;
+  z-index: 9999;
+}
+
+.default-liquid-destination .liquid-destination-stack {
+  position: absolute;
+
+  width: 100%;
+}
+
+.default-liquid-destination > .liquid-destination-stack > .liquid-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  overflow: visible;
+  visibility: hidden;
+}
+
+.default-liquid-destination > .liquid-destination-stack > .liquid-child > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100vh;
+  visibility: hidden;
+}
+
+.liquid-wormhole-container {
+  display: none;
+}
+
+.tta-modal, .tta-confirmation-modal, .liquid-child {
+  font-size: 14px; }
+  .tta-modal .background-n1, .tta-confirmation-modal .background-n1, .liquid-child .background-n1 {
+    background-color: #ecedf1; }
+  .tta-modal .background-n0, .tta-confirmation-modal .background-n0, .liquid-child .background-n0 {
+    background-color: #f7f7fa; }
+  .tta-modal .background-black, .tta-confirmation-modal .background-black, .liquid-child .background-black {
+    background-color: black; }
+  .tta-modal .background-white, .tta-confirmation-modal .background-white, .liquid-child .background-white {
+    background-color: white; }
+  .tta-modal .background-b5-10, .tta-confirmation-modal .background-b5-10, .liquid-child .background-b5-10 {
+    background-color: rgba(30, 177, 255, 0.1); }
+  .tta-modal .background-g5, .tta-confirmation-modal .background-g5, .liquid-child .background-g5 {
+    background-color: #40dba0; }
+  .tta-modal .background-g7, .tta-confirmation-modal .background-g7, .liquid-child .background-g7 {
+    background-color: #33af80; }
+  .tta-modal .background-r5, .tta-confirmation-modal .background-r5, .liquid-child .background-r5 {
+    background-color: #ff6862; }
+  .tta-modal .small-belt, .tta-confirmation-modal .small-belt, .liquid-child .small-belt {
+    width: 215px; }
+  .tta-modal .belt, .tta-confirmation-modal .belt, .liquid-child .belt {
+    width: 240px; }
+  .tta-modal .large-belt, .tta-confirmation-modal .large-belt, .liquid-child .large-belt {
+    width: 300px; }
+  .tta-modal .xlarge-belt, .tta-confirmation-modal .xlarge-belt, .liquid-child .xlarge-belt {
+    width: 344px; }
+  .tta-modal .modal-belt, .tta-confirmation-modal .modal-belt, .liquid-child .modal-belt {
+    width: 425px; }
+  .tta-modal .most-width, .tta-confirmation-modal .most-width, .liquid-child .most-width {
+    width: 90%; }
+  .tta-modal .full-width, .tta-confirmation-modal .full-width, .liquid-child .full-width {
+    width: 100%; }
+  .tta-modal .border-top, .tta-confirmation-modal .border-top, .liquid-child .border-top {
+    border-top: thin solid #ecedf1; }
+  .tta-modal .border-bottom, .tta-confirmation-modal .border-bottom, .liquid-child .border-bottom {
+    border-bottom: thin solid #ecedf1; }
+  .tta-modal .border-thick, .tta-confirmation-modal .border-thick, .liquid-child .border-thick {
+    border-width: thick; }
+  .tta-modal .border-thin, .tta-confirmation-modal .border-thin, .liquid-child .border-thin {
+    border-width: 1px; }
+  .tta-modal .border-n2, .tta-confirmation-modal .border-n2, .liquid-child .border-n2 {
+    border-color: #d5d7df; }
+  .tta-modal .border-r5, .tta-confirmation-modal .border-r5, .liquid-child .border-r5 {
+    border-color: #ff6862; }
+  .tta-modal .border-radius, .tta-confirmation-modal .border-radius, .liquid-child .border-radius {
+    border-radius: 5px; }
+  .tta-modal .modal-border-radius, .tta-confirmation-modal .modal-border-radius, .liquid-child .modal-border-radius {
+    border-radius: 10px; }
+  .tta-modal .bottom-right-radius, .tta-confirmation-modal .bottom-right-radius, .liquid-child .bottom-right-radius {
+    border-bottom-right-radius: 5px; }
+  .tta-modal .bottom-left-radius, .tta-confirmation-modal .bottom-left-radius, .liquid-child .bottom-left-radius {
+    border-bottom-left-radius: 5px; }
+  .tta-modal .ff-checkbox input[type="checkbox"]:checked + .ff-checkbox-mark:after, .tta-confirmation-modal .ff-checkbox input[type="checkbox"]:checked + .ff-checkbox-mark:after, .liquid-child .ff-checkbox input[type="checkbox"]:checked + .ff-checkbox-mark:after {
+    top: 3px; }
+  .tta-modal .flex, .tta-confirmation-modal .flex, .liquid-child .flex {
+    display: flex; }
+  .tta-modal .inline-flex, .tta-confirmation-modal .inline-flex, .liquid-child .inline-flex {
+    display: inline-flex; }
+  .tta-modal .flex--wrap, .tta-confirmation-modal .flex--wrap, .liquid-child .flex--wrap {
+    flex-wrap: wrap; }
+  .tta-modal .flex--column, .tta-confirmation-modal .flex--column, .liquid-child .flex--column {
+    flex-direction: column; }
+  .tta-modal .flex--align-center, .tta-confirmation-modal .flex--align-center, .liquid-child .flex--align-center {
+    align-items: center; }
+  .tta-modal .flex--align-stretch, .tta-confirmation-modal .flex--align-stretch, .liquid-child .flex--align-stretch {
+    align-items: stretch; }
+  .tta-modal .flex--align-start, .tta-confirmation-modal .flex--align-start, .liquid-child .flex--align-start {
+    align-items: flex-start; }
+  .tta-modal .flex--justify-center, .tta-confirmation-modal .flex--justify-center, .liquid-child .flex--justify-center {
+    justify-content: center; }
+  .tta-modal .flex--small-belt-basis, .tta-confirmation-modal .flex--small-belt-basis, .liquid-child .flex--small-belt-basis {
+    flex-basis: 250px; }
+  .tta-modal .flex--large-belt-basis, .tta-confirmation-modal .flex--large-belt-basis, .liquid-child .flex--large-belt-basis {
+    flex-basis: 650px; }
+  .tta-modal .flex--justify-between, .tta-confirmation-modal .flex--justify-between, .liquid-child .flex--justify-between {
+    justify-content: space-between; }
+  .tta-modal .flex--grow-0, .tta-confirmation-modal .flex--grow-0, .liquid-child .flex--grow-0 {
+    flex-grow: 0; }
+  .tta-modal .flex--grow-1, .tta-confirmation-modal .flex--grow-1, .liquid-child .flex--grow-1 {
+    flex-grow: 1; }
+  .tta-modal .flex--shrink-0, .tta-confirmation-modal .flex--shrink-0, .liquid-child .flex--shrink-0 {
+    flex-shrink: 0; }
+  .tta-modal .flex--shrink-1, .tta-confirmation-modal .flex--shrink-1, .liquid-child .flex--shrink-1 {
+    flex-shrink: 1; }
+  .tta-modal .flex__row-reverse, .tta-confirmation-modal .flex__row-reverse, .liquid-child .flex__row-reverse {
+    flex-direction: row-reverse; }
+  .tta-modal .pointer, .tta-confirmation-modal .pointer, .liquid-child .pointer {
+    cursor: pointer; }
+  .tta-modal .resize-none, .tta-confirmation-modal .resize-none, .liquid-child .resize-none {
+    resize: none; }
+  .tta-modal .opacity-05, .tta-confirmation-modal .opacity-05, .liquid-child .opacity-05 {
+    opacity: 0.5; }
+  .tta-modal .overflow-hidden, .tta-confirmation-modal .overflow-hidden, .liquid-child .overflow-hidden {
+    overflow: hidden; }
+  .tta-modal .overflow-auto, .tta-confirmation-modal .overflow-auto, .liquid-child .overflow-auto {
+    overflow: auto; }
+  .tta-modal .overflow-visible, .tta-confirmation-modal .overflow-visible, .liquid-child .overflow-visible {
+    overflow: visible; }
+  .tta-modal .inline-block, .tta-confirmation-modal .inline-block, .liquid-child .inline-block {
+    display: inline-block; }
+  .tta-modal .relative, .tta-confirmation-modal .relative, .liquid-child .relative {
+    position: relative; }
+  .tta-modal .horizontally-centered, .tta-confirmation-modal .horizontally-centered, .liquid-child .horizontally-centered {
+    margin-left: auto;
+    margin-right: auto; }
+  .tta-modal .margin-left-5, .tta-confirmation-modal .margin-left-5, .liquid-child .margin-left-5 {
+    margin-left: 1.2rem; }
+  .tta-modal .margin-bottom-0, .tta-confirmation-modal .margin-bottom-0, .liquid-child .margin-bottom-0 {
+    margin-bottom: 0; }
+  .tta-modal .margin-bottom-5rem, .tta-confirmation-modal .margin-bottom-5rem, .liquid-child .margin-bottom-5rem {
+    margin-bottom: 5rem; }
+  .tta-modal .margin-top-3rem, .tta-confirmation-modal .margin-top-3rem, .liquid-child .margin-top-3rem {
+    margin-top: 3rem; }
+  .tta-modal .margin-sides-0, .tta-confirmation-modal .margin-sides-0, .liquid-child .margin-sides-0 {
+    margin-left: 0;
+    margin-right: 0; }
+  .tta-modal .padding-0, .tta-confirmation-modal .padding-0, .liquid-child .padding-0 {
+    padding: 0; }
+  .tta-modal .padding-6, .tta-confirmation-modal .padding-6, .liquid-child .padding-6 {
+    padding: 0.6rem; }
+  .tta-modal .vertical-align-top, .tta-confirmation-modal .vertical-align-top, .liquid-child .vertical-align-top {
+    vertical-align: top; }
+  .tta-modal .offset-to-left, .tta-confirmation-modal .offset-to-left, .liquid-child .offset-to-left {
+    position: absolute;
+    left: -1.2rem; }
+  .tta-modal .full-screen-modal, .tta-confirmation-modal .full-screen-modal, .liquid-child .full-screen-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto; }
+  .tta-modal .modal-offset-top-10, .tta-confirmation-modal .modal-offset-top-10, .liquid-child .modal-offset-top-10 {
+    padding-top: 10%; }
+  .tta-modal .shady, .tta-confirmation-modal .shady, .liquid-child .shady {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 0 1px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2px; }
+  .tta-modal .vertically-scrollable, .tta-confirmation-modal .vertically-scrollable, .liquid-child .vertically-scrollable {
+    height: 100%;
+    overflow-x: hidden; }
+  .tta-modal .skeleton-container, .tta-confirmation-modal .skeleton-container, .liquid-child .skeleton-container {
+    position: relative;
+    box-sizing: border-box; }
+  .tta-modal .skeleton-element, .tta-confirmation-modal .skeleton-element, .liquid-child .skeleton-element {
+    background: #ecedf1;
+    display: block;
+    height: 1em; }
+  .tta-modal .skeleton-element__dark, .tta-confirmation-modal .skeleton-element__dark, .liquid-child .skeleton-element__dark {
+    background: #d5d7df; }
+  .tta-modal .skeleton-element__image, .tta-confirmation-modal .skeleton-element__image, .liquid-child .skeleton-element__image {
+    width: 60%;
+    max-width: 12rem;
+    height: 7rem; }
+  .tta-modal .skeleton-element__h2, .tta-confirmation-modal .skeleton-element__h2, .liquid-child .skeleton-element__h2 {
+    width: 70%;
+    max-width: 15rem;
+    height: 1.5rem; }
+  .tta-modal .skeleton-element__h3, .tta-confirmation-modal .skeleton-element__h3, .liquid-child .skeleton-element__h3 {
+    width: 70%;
+    max-width: 15rem;
+    height: 1.2rem; }
+  .tta-modal .skeleton-element__p, .tta-confirmation-modal .skeleton-element__p, .liquid-child .skeleton-element__p {
+    width: 56.66667%;
+    max-width: 14rem;
+    height: 0.7rem; }
+  .tta-modal .skeleton-element__inline, .tta-confirmation-modal .skeleton-element__inline, .liquid-child .skeleton-element__inline {
+    display: inline-block; }
+  .tta-modal .skeleton-element__w1, .tta-confirmation-modal .skeleton-element__w1, .liquid-child .skeleton-element__w1 {
+    width: 50%;
+    max-width: 9rem; }
+  .tta-modal .skeleton-element__w2, .tta-confirmation-modal .skeleton-element__w2, .liquid-child .skeleton-element__w2 {
+    width: 60%;
+    max-width: 12rem; }
+  .tta-modal .skeleton-element__w3, .tta-confirmation-modal .skeleton-element__w3, .liquid-child .skeleton-element__w3 {
+    width: 70%;
+    max-width: 15rem; }
+  .tta-modal .skeleton-element__w4, .tta-confirmation-modal .skeleton-element__w4, .liquid-child .skeleton-element__w4 {
+    width: 80%;
+    max-width: 18rem; }
+  .tta-modal .skeleton-element__w5, .tta-confirmation-modal .skeleton-element__w5, .liquid-child .skeleton-element__w5 {
+    width: 90%;
+    max-width: 21rem; }
+  .tta-modal .skeleton-element__w5, .tta-confirmation-modal .skeleton-element__w5, .liquid-child .skeleton-element__w5 {
+    width: 90%;
+    max-width: 21rem; }
+  .tta-modal .skeleton-element__w8, .tta-confirmation-modal .skeleton-element__w8, .liquid-child .skeleton-element__w8 {
+    width: 100%;
+    max-width: 30rem; }
+  .tta-modal .checkbox-stub, .tta-confirmation-modal .checkbox-stub, .liquid-child .checkbox-stub {
+    width: 17px; }
+  .tta-modal .gibson, .tta-confirmation-modal .gibson, .liquid-child .gibson {
+    font-family: "Gibson", sans-serif; }
+  .tta-modal .line-height-8, .tta-confirmation-modal .line-height-8, .liquid-child .line-height-8 {
+    line-height: 40px; }
+  .tta-modal .semi-bold, .tta-confirmation-modal .semi-bold, .liquid-child .semi-bold {
+    font-weight: bold; }
+  .tta-modal .normal-weight, .tta-confirmation-modal .normal-weight, .liquid-child .normal-weight {
+    font-weight: normal; }
+  .tta-modal .italic, .tta-confirmation-modal .italic, .liquid-child .italic {
+    font-style: italic; }
+  .tta-modal .flex-align-center, .tta-confirmation-modal .flex-align-center, .liquid-child .flex-align-center {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .tta-modal .text-align-center, .tta-confirmation-modal .text-align-center, .liquid-child .text-align-center {
+    text-align: center; }
+  .tta-modal .text-align-right, .tta-confirmation-modal .text-align-right, .liquid-child .text-align-right {
+    text-align: right; }
+  .tta-modal .text-b5, .tta-confirmation-modal .text-b5, .liquid-child .text-b5 {
+    color: #1eb1ff; }
+  .tta-modal .text-i5, .tta-confirmation-modal .text-i5, .liquid-child .text-i5 {
+    color: #5450dc; }
+  .tta-modal .text-n0, .tta-confirmation-modal .text-n0, .liquid-child .text-n0 {
+    color: #f7f7fa; }
+  .tta-modal .text-n3, .tta-confirmation-modal .text-n3, .liquid-child .text-n3 {
+    color: #bdbfcb; }
+  .tta-modal .text-n4, .tta-confirmation-modal .text-n4, .liquid-child .text-n4 {
+    color: #a5a7b5; }
+  .tta-modal .text-n5, .tta-confirmation-modal .text-n5, .liquid-child .text-n5 {
+    color: #8f92a2; }
+  .tta-modal .text-n6, .tta-confirmation-modal .text-n6, .liquid-child .text-n6 {
+    color: #7f8291; }
+  .tta-modal .text-n7, .tta-confirmation-modal .text-n7, .liquid-child .text-n7 {
+    color: #6a6d7c; }
+  .tta-modal .text-n8, .tta-confirmation-modal .text-n8, .liquid-child .text-n8 {
+    color: #535663; }
+  .tta-modal .text-g5, .tta-confirmation-modal .text-g5, .liquid-child .text-g5 {
+    color: #40dba0; }
+  .tta-modal .text-r5, .tta-confirmation-modal .text-r5, .liquid-child .text-r5 {
+    color: #ff6862; }
+  .tta-modal .text-r8, .tta-confirmation-modal .text-r8, .liquid-child .text-r8 {
+    color: #b34945; }
+  .tta-modal .transition-color, .tta-confirmation-modal .transition-color, .liquid-child .transition-color {
+    transition: color 0.3s; }
+  .tta-modal .hover-text-r5:hover, .tta-confirmation-modal .hover-text-r5:hover, .liquid-child .hover-text-r5:hover {
+    color: #ff6862; }
+  .tta-modal .text-white, .tta-confirmation-modal .text-white, .liquid-child .text-white {
+    color: white; }
+  .tta-modal .text-spacing-2, .tta-confirmation-modal .text-spacing-2, .liquid-child .text-spacing-2 {
+    letter-spacing: 0.5px; }
+  .tta-modal .text-small-2, .tta-confirmation-modal .text-small-2, .liquid-child .text-small-2 {
+    font-size: 12px; }
+  .tta-modal .text-small-1, .tta-confirmation-modal .text-small-1, .liquid-child .text-small-1 {
+    font-size: 13px; }
+  .tta-modal .text-large-1, .tta-confirmation-modal .text-large-1, .liquid-child .text-large-1 {
+    font-size: 15px; }
+  .tta-modal .text-large-2, .tta-confirmation-modal .text-large-2, .liquid-child .text-large-2 {
+    font-size: 16px; }
+  .tta-modal .text-large-3, .tta-confirmation-modal .text-large-3, .liquid-child .text-large-3 {
+    font-size: 17px; }
+  .tta-modal .text-large-4, .tta-confirmation-modal .text-large-4, .liquid-child .text-large-4 {
+    font-size: 18px; }
+  .tta-modal .text-large-6, .tta-confirmation-modal .text-large-6, .liquid-child .text-large-6 {
+    font-size: 20px; }
+  .tta-modal .text-large-6-1, .tta-confirmation-modal .text-large-6-1, .liquid-child .text-large-6-1 {
+    font-size: 22px; }
+  .tta-modal .text-large-7, .tta-confirmation-modal .text-large-7, .liquid-child .text-large-7 {
+    font-size: 28px; }
+  .tta-modal .text-size-icon-small, .tta-confirmation-modal .text-size-icon-small, .liquid-child .text-size-icon-small {
+    font-size: 14px; }
+  .tta-modal .text-size-icon-medium, .tta-confirmation-modal .text-size-icon-medium, .liquid-child .text-size-icon-medium {
+    font-size: 36px; }
+  .tta-modal .text-size-icon-large, .tta-confirmation-modal .text-size-icon-large, .liquid-child .text-size-icon-large {
+    font-size: 55px; }
+  .tta-modal .circled-icon-large, .tta-confirmation-modal .circled-icon-large, .liquid-child .circled-icon-large {
+    width: 93px;
+    height: 93px;
+    border-radius: 93px;
+    line-height: 93px;
+    text-align: center; }
+  .tta-modal .white-space-pre, .tta-confirmation-modal .white-space-pre, .liquid-child .white-space-pre {
+    white-space: pre; }
+  .tta-modal :not(:last-child).bordered-child, .tta-confirmation-modal :not(:last-child).bordered-child, .liquid-child :not(:last-child).bordered-child {
+    border-bottom: 4px solid #ecedf1; }
+  .tta-modal :not(:last-child).thin-bordered-child, .tta-confirmation-modal :not(:last-child).thin-bordered-child, .liquid-child :not(:last-child).thin-bordered-child {
+    border-bottom: 1px solid #ecedf1; }
+  .tta-modal .button-group-thick-gutter .button, .tta-confirmation-modal .button-group-thick-gutter .button, .liquid-child .button-group-thick-gutter .button {
+    margin-left: 5px;
+    margin-right: 5px; }
+  .tta-modal .button-group-thick-gutter .button:first-child, .tta-confirmation-modal .button-group-thick-gutter .button:first-child, .liquid-child .button-group-thick-gutter .button:first-child {
+    margin-left: 0; }
+  .tta-modal .button-group-thick-gutter .button:last-child, .tta-confirmation-modal .button-group-thick-gutter .button:last-child, .liquid-child .button-group-thick-gutter .button:last-child {
+    margin-right: 0; }
+  .tta-modal .card, .tta-confirmation-modal .card, .liquid-child .card {
+    background-color: #ffffff;
+    border-radius: 5px; }
+  .tta-modal .center-vertically, .tta-confirmation-modal .center-vertically, .liquid-child .center-vertically {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%); }
+  .tta-modal .event-image, .tta-confirmation-modal .event-image, .liquid-child .event-image {
+    height: 105px;
+    width: 160px; }
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+  .tta-modal .loading-spinner, .tta-confirmation-modal .loading-spinner, .liquid-child .loading-spinner {
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    border: 2px solid white;
+    position: relative;
+    animation-name: rotate;
+    animation-duration: 0.8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear; }
+  .tta-modal .loading-spinner > div, .tta-confirmation-modal .loading-spinner > div, .liquid-child .loading-spinner > div {
+    width: 100%;
+    height: 4px;
+    position: absolute;
+    top: -2px;
+    left: 0; }
+  .tta-modal .tta-modal-main, .tta-confirmation-modal .tta-modal-main, .liquid-child .tta-modal-main {
+    padding-bottom: 150px; }
+  .tta-modal .tta-toast-modal-desktop, .tta-confirmation-modal .tta-toast-modal-desktop, .liquid-child .tta-toast-modal-desktop {
+    position: fixed;
+    top: 0;
+    left: 50%; }
+  .tta-modal .tta-toast-modal-mobile, .tta-confirmation-modal .tta-toast-modal-mobile, .liquid-child .tta-toast-modal-mobile {
+    position: fixed;
+    top: 0;
+    width: 100vw; }
+  .tta-modal .tta-toast-desktop, .tta-confirmation-modal .tta-toast-desktop, .liquid-child .tta-toast-desktop {
+    min-width: 345px;
+    transform: translateX(-50%); }
+  .tta-modal .tta-toast-mobile, .tta-confirmation-modal .tta-toast-mobile, .liquid-child .tta-toast-mobile {
+    width: 100%; }
+  .tta-modal .tta-toast--button, .tta-confirmation-modal .tta-toast--button, .liquid-child .tta-toast--button {
+    position: relative;
+    top: 2px; }
+  .tta-modal .media-object.stack-for-small .media-object-section img, .tta-confirmation-modal .media-object.stack-for-small .media-object-section img, .liquid-child .media-object.stack-for-small .media-object-section img {
+    width: 160px; }
+  .tta-modal .ff-checkbox input[type="checkbox"]:checked + .ff-checkbox-mark, .tta-confirmation-modal .ff-checkbox input[type="checkbox"]:checked + .ff-checkbox-mark, .liquid-child .ff-checkbox input[type="checkbox"]:checked + .ff-checkbox-mark {
+    background-color: #3ac590;
+    border-color: #3ac590; }
+  @media screen and (max-width: 39.9375em) {
+    .tta-modal .small-padding-bottom-0, .tta-confirmation-modal .small-padding-bottom-0, .liquid-child .small-padding-bottom-0 {
+      padding-bottom: 0; }
+    .tta-modal .small-padding-2, .tta-confirmation-modal .small-padding-2, .liquid-child .small-padding-2 {
+      padding: 10px; }
+    .tta-modal .small-margin-bottom-0, .tta-confirmation-modal .small-margin-bottom-0, .liquid-child .small-margin-bottom-0 {
+      margin-bottom: 0; }
+    .tta-modal .small-full-width, .tta-confirmation-modal .small-full-width, .liquid-child .small-full-width {
+      width: 100%; }
+    .tta-modal .most-width, .tta-confirmation-modal .most-width, .liquid-child .most-width {
+      width: 80%; } }
+
+html, body {
+  height: auto;
+  z-index: 9999;
+  position: relative; }
+
+.tta-modal {
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: #f7f7fa; }
+
+/* Because we can't style the BODY tag (grails), we need to create our own "body" scope */
+.tta-modal--full-screen {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0; }
+
+/*
+  This ensures that the pre-rendered content on the page does not affect
+  how our modals render.
+*/
+.default-liquid-destination {
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+.tta-confirmation-modal {
+  width: 425px; }
+
+/*# sourceMappingURL=ticket-transfer-addon.css.map */

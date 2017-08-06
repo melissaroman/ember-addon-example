@@ -1,0 +1,9 @@
+<div class="top-bar-right">
+  <a class="font-size-large-2 text-i5" {{action attrs.action bubbles=false}}>
+    {{#if hasBlock}}
+      {{yield}}
+    {{else}}
+      {{actionText}}
+    {{/if}}
+  </a>
+</div>

@@ -1,0 +1,13 @@
+{{yield (hash
+  toggle=(action 'toggleVisibility')
+  toggled=contentVisible
+  content=(component 'tta-show-hide/visible-content'
+    visible=contentVisible
+    id=controlsId
+  )
+  button=(component 'tta-show-hide/expand-button'
+    toggle=(action 'toggleVisibility')
+    toggled=contentVisible
+    aria-controls=controlsId
+  )
+)}}

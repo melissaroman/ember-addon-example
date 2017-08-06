@@ -1,0 +1,58 @@
+<h2 class="{{if media.isMobile "margin-top-3 text-large-4" "margin-top-5"}} text-n8">{{t "transfer_request.select_tickets"}}</h2>
+<div class="card shady">
+  <div class="bordered-child" data-test={{hook "tta_event_table" isLoading=(not resolvedEvent)}}>
+    {{#liquid-if resolvedEvent}}
+      {{tta-event-info class="padding-sides-4 padding-ends-3" event=resolvedEvent}}
+    {{else}}
+      {{tta-event-info-skeleton}}
+    {{/liquid-if}}
+
+    <ul class="no-bullet">
+      {{#liquid-if resolvedTickets}}
+        {{#tta-selected-list
+          list=resolvedTickets
+          selected=selectedTickets
+          selection-changed=(action "selectTickets") as |ctx|}}
+          {{#each ctx.all-items as |ticket|}}
+            {{tta-ticket-row
+              ticket=ticket
+              toggleSelect=(action ctx.toggle ticket)
+              selected=(contains ticket ctx.selected)
+              class="border-top padding-sides-4 padding-ends-2 padding-right-4"
+            }}
+          {{/each}}
+        {{/tta-selected-list}}
+      {{else}}
+        {{tta-ticket-row-skeleton}}
+        {{tta-ticket-row-skeleton}}
+      {{/liquid-if}}
+    </ul>
+  </div>
+</div>
+
+<h2 class="margin-top-6 text-n8">{{t "transfer_request.transfer_to"}}</h2>
+<div class="card shady padding-4">
+  <div class="large-belt small-full-width margin-bottom-3">
+    {{tta-validating-input
+      type="email"
+      value=transferToEmail
+      on-update=(action (mut transferToEmail))
+      insert-newline=(action "submitTransfer")
+      isValid=emailIsNotSelf
+      validateImmediately=true
+      placeholder=(t "general.email")
+      error-message=(t "transfer_request.no_transfer_to_self" count=selectedTickets.length)
+      class="text-n8 margin-bottom-0 text-large-2"}}
+  </div>
+  {{tta-personal-message message=transferMessage class="xlarge-belt small-full-width" action=(action (mut transferMessage))}}
+</div>
+
+<div class="margin-top-6">
+  <button
+    class="button success-dark small-full-width text-spacing-2"
+    disabled={{cannotTransfer}}
+    data-test={{hook "tta_transfer_button" enabled=(not cannotTransfer)}}
+    {{action "submitTransfer"}}>
+    {{t "actions.review_and_transfer"}}
+  </button>
+</div>

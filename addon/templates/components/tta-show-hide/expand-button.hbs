@@ -1,0 +1,7 @@
+<span class="offset-to-left {{if toggled "tf-direct-down" "tf-direct-right"}}"></span>
+<button
+  data-test={{hook "tta_show_hide_button"}}
+  aria-expanded={{if toggled "true" "false"}}
+  aria-controls={{aria-controls}}>
+  {{yield}}
+</button>

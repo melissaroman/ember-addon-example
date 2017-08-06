@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="56px" height="56px" viewBox="0 0 56 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>cancel-x</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Transfer-Tickets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="cancel-x" fill="#b34944">
+            <path d="M28,55.5 C43.1878306,55.5 55.5,43.1878306 55.5,28 C55.5,12.8121694 43.1878306,0.5 28,0.5 C12.8121694,0.5 0.5,12.8121694 0.5,28 C0.5,43.1878306 12.8121694,55.5 28,55.5 L28,55.5 L28,55.5 Z M28,52.5 C14.4690236,52.5 3.5,41.5309764 3.5,28 C3.5,14.4690236 14.4690236,3.5 28,3.5 C41.5309764,3.5 52.5,14.4690236 52.5,28 C52.5,41.5309764 41.5309764,52.5 28,52.5 L28,52.5 L28,52.5 Z" id="Oval-1"></path>
+            <polygon id="Combined-Shape" points="38.1890957 16.5936367 40.310416 18.714957 30.1523262 28.8730469 40.1541925 38.8749131 38.0328721 40.9962335 28.0310059 30.9943672 17.9349909 41.0903822 15.8136705 38.9690619 25.9096855 28.8730469 15.5640957 18.527457 17.685416 16.4061367 28.0310059 26.7517265"></polygon>
+        </g>
+    </g>
+</svg>

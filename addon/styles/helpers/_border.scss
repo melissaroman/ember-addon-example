@@ -1,0 +1,39 @@
+.border-top {
+  border-top: thin solid $n1;
+}
+
+.border-bottom {
+  border-bottom: thin solid $n1;
+}
+
+.border-thick {
+  border-width: thick;
+}
+
+.border-thin {
+  border-width: 1px;
+}
+
+.border-n2 {
+  border-color: $n2;
+}
+
+.border-r5 {
+  border-color: $r5;
+}
+
+.border-radius {
+  border-radius: $border-radius;
+}
+
+.modal-border-radius {
+  border-radius: $modal-border-radius;
+}
+
+.bottom-right-radius {
+  border-bottom-right-radius: $border-radius;
+}
+
+.bottom-left-radius {
+  border-bottom-left-radius: $border-radius;
+}

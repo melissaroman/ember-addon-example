@@ -1,0 +1,79 @@
+{{#liquid-if shouldDisplayUserNames use="fade" containerless=true class="overflow-visible"}}
+  <div class="card shady padding-top-4 padding-left-4 padding-bottom-1 margin-top-6">
+    <div class="small-full-width">
+      <h4 class="text-large-2 text-n8">{{t "accept_transfer.order_information"}}</h4>
+
+      <div class="flex flex--wrap">
+        {{tta-validating-input
+          class="flex--grow-1 flex--small-belt-basis margin-right-4 margin-bottom-3"
+          label=(t "accept_transfer.first_name_label")
+          placeholder=(t "accept_transfer.first_name_input")
+          error-message=(t "accept_transfer.first_name_required")
+          on-update=(action (mut user.firstName))
+          isValid=user.firstName
+          value=(readonly user.firstName)}}
+
+        {{tta-validating-input
+          class="flex--grow-1 flex--small-belt-basis margin-right-4 margin-bottom-3"
+          label=(t "accept_transfer.last_name_label")
+          placeholder=(t "accept_transfer.last_name_input")
+          error-message=(t "accept_transfer.last_name_required")
+          on-update=(action (mut user.lastName))
+          isValid=user.lastName
+          value=(readonly user.lastName)}}
+      </div>
+    </div>
+  </div>
+{{/liquid-if}}
+
+<div class="margin-sides-6 margin-top-6">
+  {{#tta-if-resolved model.event as |event|}}
+    <fieldset class="margin-bottom-6">
+      {{ff-checkbox
+        hook="tta_accept_promotions"
+        checked=(readonly marketingPref.emailSubscription)
+        on-change=(action "toggleAgreedToPromotions")
+        checkboxId="tta_accept_promotions_checkbox"
+      }}
+      <label
+        class="inline-block margin-left-2 text-n8 most-width vertical-align-top"
+        for="tta_accept_promotions_checkbox"
+        data-test={{hook "tta_accept_venue_names"}}>
+        {{t "marketing.accept_promotions" venueName=event.venue.name}}
+      </label>
+    </fieldset>
+  {{else}}
+    <fieldset class="margin-bottom-6">
+      {{ff-checkbox checked=true}}
+      <label class="inline-block margin-left-2 text-n8 most-width vertical-align-top">
+        <div class="skeleton-element skeleton-element__p margin-bottom-3 skeleton-element__dark skeleton-element__w8"></div>
+        <div class="skeleton-element skeleton-element__p margin-bottom-3 skeleton-element__dark skeleton-element__w6"></div>
+      </label>
+    </fieldset>
+  {{/tta-if-resolved}}
+
+  <div class="margin-bottom-6 text-align-center">
+    {{t "accept_transfer.by_accepting_line1"}}<br>
+    {{#link-to "accept.confirm.terms" class="text-i5" hook="tta_accept_tandc" replace=true}}
+      {{t "accept_transfer.by_accepting_line2"}}
+    {{/link-to}}
+  </div>
+</div>
+
+{{#if isAcceptingToSameUser}}
+  {{#tta-modal}}
+    {{tta-same-user-modal email=user.email}}
+  {{/tta-modal}}
+{{/if}}
+
+{{#if numberToAccept}}
+  <button class="button success-dark full-width margin-bottom-6 {{if media.isMobile "text-large-3 padding-6" "text-large-6"}}" {{action "acceptTransfer"}} disabled={{or acceptButtonDisabled isLoading}} data-test={{hook "tta_accept_button"}}>
+    {{t "actions.accept" count=numberToAccept}}
+  </button>
+{{else}}
+  <button class="button alert full-width margin-bottom-6 {{if media.isMobile "text-large-3 padding-6" "text-large-6"}}" {{action "acceptTransfer"}} disabled={{or acceptButtonDisabled isLoading}} data-test={{hook "tta_accept_button"}}>
+    {{t "actions.decline_all"}}
+  </button>
+{{/if}}
+
+{{outlet}}

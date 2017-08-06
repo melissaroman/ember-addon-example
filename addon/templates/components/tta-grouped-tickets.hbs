@@ -1,0 +1,18 @@
+{{#each-in (group-by "variantName" tickets) as |variantName tickets|}}
+  <strong class="text-large-1 text-n8" data-test={{hook "tta_grouped_tickets_grouping"}}>
+    {{tickets.length}} x {{variantName}}
+  </strong>
+  <ul class="no-bullet">
+    {{#each tickets as |ticket index|}}
+      <li class="text-small-1 text-n6" data-test={{hook "tta_grouped_tickets_ticket" variantName=variantName index=index}}>
+        {{#with (hash seatDetails=(tta-section-details ticket.properties)) as |props|}}
+          {{#if props.seatDetails}}
+            {{props.seatDetails}}
+          {{else}}
+            {{t "ticket.barcode"}} {{barcode-obfuscator ticket.code}}
+          {{/if}}
+        {{/with}}
+      </li>
+    {{/each}}
+  </ul>
+{{/each-in}}

@@ -1,0 +1,19 @@
+<div class="flex-align-center padding-5">
+  {{#if model.tickets}}
+    <i class="tf-check-circle text-g5 text-size-icon-medium"></i>
+    <h2 class="text-large-6 margin-left-5 margin-bottom-0 text-n8" data-test={{hook "tta_accept_success_message"}}>
+      {{t "accept_transfer.accepted"}}
+    </h2>
+  {{else}}
+    <i class="tf-x-circle text-r5 text-size-icon-medium"></i>
+    <h2 class="text-large-6 margin-left-5 margin-bottom-0 text-n8" data-test={{hook "tta_accept_success_message"}}>
+      {{t "accept_transfer.declined"}}
+    </h2>
+  {{/if}}
+</div>
+<div class="text-align-center padding-5">
+  {{!-- TODO: Figure out what to route this to. --}}
+  {{#link-to-external "my-orders" class="text-i5" replace=true}}
+    {{t "accept_transfer.see_my_orders"}}
+  {{/link-to-external}}
+</div>

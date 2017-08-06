@@ -1,0 +1,18 @@
+// TODO: The overrides in here might override the consuming app, which is no bueno!
+// Might want to figure out a CSS Namespacing solution in the interim — Engines hasn't determined that yet.
+.media-object.stack-for-small {
+  .media-object-section {
+    img {
+      width: 160px;
+    }
+  }
+}
+
+.ff-checkbox {
+  input[type="checkbox"]:checked {
+    + .ff-checkbox-mark {
+      background-color: $g6;
+      border-color: $g6;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<div class="row small-collapse align-middle margin-sides-0">
+  <div class="column expand padding-left-0" data-test={{hook "tta_ticket_details_column"}}>
+    <div data-test={{hook "tta_accept_ticket_row_variant_description"}}>
+      <strong>{{ticket.variantName}}</strong>
+    </div>
+    <div data-test={{hook "tta_accept_ticket_row_count_info"}}>
+      {{#with (tta-section-details ticket.properties) as |details|}}
+        {{details}}
+      {{else}}
+        {{t "comparison.aofb" countA=(tta-inc index) countB=ticketsLength}}
+      {{/with}}
+    </div>
+  </div>
+</div>

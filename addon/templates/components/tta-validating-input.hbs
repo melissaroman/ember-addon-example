@@ -1,0 +1,21 @@
+<label>
+  {{#if label}}
+    <span class="text-n5 margin-bottom-0 text-small-2 normal-weight">{{label}} <span class="text-r5">*</span> </span>
+  {{/if}}
+  {{input key-up=(action "handleUpdate")
+          focus-out=(action "valueWasEdited")
+          insert-newline=(action "insertNewline")
+          type=(or type "text")
+          value=value
+          placeholder=placeholder
+          hook="tta_validating_input"
+          hookQualifiers=(hash invalid=renderInvalidState)
+          aria-describedby=(concat uniqueId "-input")
+          class=(concat "text-small-1 border-thin margin-bottom-0 " (if renderInvalidState "border-r5"))}}
+</label>
+
+{{#liquid-if renderInvalidState use="fade"}}
+  <p class="text-r5 semi-bold margin-bottom-0" id={{concat uniqueId "-input"}} data-test={{hook "tta_validating_input_error"}}>
+    {{error-message}}
+  </p>
+{{/liquid-if}}

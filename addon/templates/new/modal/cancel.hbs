@@ -1,0 +1,34 @@
+<div class="padding-5 background-r5 text-align-center">
+  <svg role="img" alt="Cancel Icon" width="56px" height="56px">
+    <use xlink:href="#cancel-x"></use>
+  </svg>
+  <h2 class="text-large-4 text-white horizontally-centered margin-bottom-0">
+    {{t "transfer_request.cancel_confirm"}}
+  </h2>
+</div>
+
+<div class="padding-4">
+  {{tta-grouped-tickets tickets=model.tickets}}
+
+  <div class="margin-bottom-6">
+    <strong class="text-large-1 text-n8" data-test={{hook "tta_cancel_confirmation_email"}}>
+      {{model.recipient.email}}
+    </strong>
+    <p class="text-small-2 text-n6 small-belt">
+      {{t "transfer_request.cancel_recipient_notify"}}
+    </p>
+  </div>
+
+  <div class="button-group expanded button-group-thick-gutter margin-bottom-0">
+    {{#link-to "new"
+      tagName="button"
+      class="button hollow light"
+      hook="tta_cancel_confirmation_back_button"
+      replace=true}}
+      {{t "actions.back"}}
+    {{/link-to}}
+    <button class="button alert" {{action "cancelTransfer"}} disabled={{cancelTransfer.isRunning}} data-test={{hook "tta_cancel_confirmation_confirm_button"}}>
+      {{t "transfer_request.cancel_confirm_button"}}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+$size: 20px;
+$border: 2px;
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg)
+  }
+
+  to {
+    transform: rotate(360deg)
+  }
+}
+
+.loading-spinner {
+  width: $size;
+  height: $size;
+  border-radius: $size;
+  border: $border solid white;
+  position: relative;
+  animation-name: rotate;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.loading-spinner > div {
+  width: 100%;
+  height: $border * 2;
+  position: absolute;
+  top: $border * -1;
+  left: 0;
+}

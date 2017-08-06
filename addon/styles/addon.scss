@@ -1,0 +1,74 @@
+$border-radius: 5px;
+$modal-border-radius: 10px;
+$base-layout-step-size: 5px;
+
+@import "util/util";
+@import "ticketfly-ui/colors";
+@import "ticketfly-ui/settings/global";
+
+.tta-modal, .tta-confirmation-modal, .liquid-child {
+  @import "helpers/background";
+  @import "helpers/belts";
+  @import "helpers/border";
+  @import "helpers/checkbox-override";
+  @import "helpers/flexbox";
+  @import "helpers/cursor";
+  @import "helpers/inputs";
+  @import "helpers/opacity";
+  @import "helpers/positioning";
+  @import "helpers/shady";
+  @import "helpers/scrollable";
+  @import "helpers/skeleton";
+  @import "helpers/stubs";
+  @import "helpers/typography";
+  @import "objects/bordered-child";
+  @import "objects/button-group";
+  @import "objects/card";
+  @import "objects/center-vertically";
+  @import "objects/event-image";
+  @import "objects/loading-spinner";
+  @import "objects/main";
+  @import "objects/toast";
+  @import "ticketfly-ui-overrides";
+  @import "responsive";
+
+  font-size: 14px;
+}
+
+html, body {
+  height: auto;
+  z-index: 9999;
+  position: relative;
+}
+
+.tta-modal {
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: $n0;
+}
+
+/* Because we can't style the BODY tag (grails), we need to create our own "body" scope */
+.tta-modal--full-screen {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+/*
+  This ensures that the pre-rendered content on the page does not affect
+  how our modals render.
+*/
+.default-liquid-destination {
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.tta-confirmation-modal {
+  width: 425px;
+}

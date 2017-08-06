@@ -1,0 +1,52 @@
+<div class="padding-5 background-n1 text-align-center">
+  <svg role="img" alt="Ticket Transfer Icon" class="margin-bottom-2" width="46px" height="47px">
+    <use xlink:href="#transfer-out"></use>
+  </svg>
+  <h2 class="text-large-4 text-n8 belt horizontally-centered margin-bottom-0">
+    {{t "transfer_request.confirm"}}
+  </h2>
+</div>
+
+<div class="padding-4">
+  {{tta-grouped-tickets tickets=model.tickets}}
+
+  <div class="margin-bottom-10">
+    <strong class="text-large-1 text-n8" data-test={{hook "tta_confirmation_modal_email"}}>
+      {{model.email}}
+    </strong>
+    <p class="text-small-2 text-n6">
+      {{t "transfer_request.recipient_notify"}}
+    </p>
+
+    {{#if model.message}}
+      <div class="border-top padding-ends-3 flex flex--align-start">
+        <svg role="img" alt="Message Icon" class="margin-right-3" width="18px" height="18px">
+          <use xlink:href="#message-icon"></use>
+        </svg>
+        <p class="text-n8 italic margin-bottom-0">
+          {{line-breaker model.message}}
+        </p>
+      </div>
+    {{/if}}
+  </div>
+
+  <div class="margin-bottom-5 text-align-center">
+    <span class="text-n7">{{t "transfer_request.by_submitting_line1"}}</span><br>
+    {{#link-to "new.modal.terms" class="text-i5" hook="tta_confirmation_modal_tandc" replace=true}}
+      {{t "transfer_request.by_submitting_line2"}}
+    {{/link-to}}
+  </div>
+
+  <div class="button-group expanded button-group-thick-gutter margin-bottom-0">
+    {{#link-to "new.index"
+      tagName="button"
+      class="button hollow light"
+      replace=true
+      hook="tta_confirmation_modal_cancel_button"}}
+      {{t "actions.cancel"}}
+    {{/link-to}}
+    <button class="button success success-dark" {{action "createTransfer"}} disabled={{createTransfer.isRunning}} data-test={{hook "tta_confirmation_modal_transfer_button"}} data-circle-mask-target="true">
+      {{t "actions.submit"}}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+{{#if hasImage}}
+  <div class="margin-right-2">
+    <img class="event-image" src={{imageURL}} data-test={{hook "tta_event_table_img"}}>
+  </div>
+{{/if}}
+
+<div>
+  {{#if event.topLineInfo}}
+    <h4 class="text-n5 margin-bottom-0 text-small-2 normal-weight" data-test={{hook "tta_event_table_top_line"}}>
+      {{event.topLineInfo}}
+    </h4>
+  {{/if}}
+
+  <h3 class="gibson semi-bold text-n8 {{if event.topLineInfo "text-large-2" "text-large-6-1"}} margin-bottom-0" data-test={{hook "tta_event_table_name"}}>
+    {{event.name}}
+  </h3>
+
+  <div data-test={{hook "tta_event_table_date"}}>
+    {{moment-format event.startTime "dddd, MMMM D, YYYY" allow-empty=true}}
+  </div>
+  <div data-test={{hook "tta_event_table_times"}}>
+    {{if event.doorTime (t "event.door_time" time=(moment-format event.doorTime "h:mm A" allow-empty=true))}}
+    {{if (and event.doorTime event.startTime) "|"}}
+    {{if event.startTime (t "event.show_time" time=(moment-format event.startTime "h:mm A" allow-empty=true))}}
+  </div>
+  <div data-test={{hook "tta_event_table_location"}}>
+    {{t "event.location" name=event.venue.name city=event.venue.address.city state=event.venue.address.stateCode}}
+  </div>
+</div>

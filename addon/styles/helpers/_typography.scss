@@ -1,0 +1,157 @@
+.gibson {
+  font-family: "Gibson", sans-serif;
+}
+
+.line-height-8 {
+  line-height: $base-layout-step-size * 8;
+}
+
+.semi-bold {
+  font-weight: bold;
+}
+
+.normal-weight {
+  font-weight: normal;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.flex-align-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.text-b5 {
+  color: $b5;
+}
+
+.text-i5 {
+  color: $i5;
+}
+
+.text-n0 {
+  color: $n0;
+}
+
+.text-n3 {
+  color: $n3;
+}
+
+.text-n4 {
+  color: $n4;
+}
+
+.text-n5 {
+  color: $n5;
+}
+
+.text-n6 {
+  color: $n6;
+}
+
+.text-n7 {
+  color: $n7;
+}
+
+.text-n8 {
+  color: $n8;
+}
+
+.text-g5 {
+  color: $g5;
+}
+
+.text-r5 {
+  color: $r5;
+}
+
+.text-r8 {
+  color: $r8;
+}
+
+.transition-color {
+  transition: color 0.3s;
+}
+
+.hover-text-r5:hover {
+  color: $r5;
+}
+
+.text-white {
+  color: white;
+}
+
+.text-spacing-2 {
+  letter-spacing: 0.5px;
+}
+
+.text-small-2 {
+  font-size: 12px;
+}
+
+.text-small-1 {
+  font-size: 13px;
+}
+
+.text-large-1 {
+  font-size: 15px;
+}
+
+.text-large-2 {
+  font-size: 16px;
+}
+
+.text-large-3 {
+  font-size: 17px;
+}
+
+.text-large-4 {
+  font-size: 18px;
+}
+
+.text-large-6 {
+  font-size: 20px;
+}
+
+.text-large-6-1 {
+  font-size: 22px;
+}
+
+.text-large-7 {
+  font-size: 28px;
+}
+
+.text-size-icon-small {
+  font-size: 14px;
+}
+
+.text-size-icon-medium {
+  font-size: 36px;
+}
+
+.text-size-icon-large {
+  font-size: 55px;
+}
+
+.circled-icon-large {
+  width: 93px;
+  height: 93px;
+  border-radius: 93px;
+  line-height: 93px;
+  text-align: center;
+}
+
+.white-space-pre {
+  white-space: pre;
+}

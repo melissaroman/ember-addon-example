@@ -1,0 +1,77 @@
+{{tta-toasts}}
+<div class="row margin-sides-5">
+  <div class="columns small-12 margin-top-5">
+    <h1>Dummy &quot;Login&quot; Page</h1>
+
+    <p>
+      This page will not be included in the production app. This can be used to test
+      against a real API outside of the consuming application context.
+      <button {{action 'triggerToast'}}>Trigger Error</button>
+    </p>
+
+    {{#if session.isAuthenticated}}
+      <div class="callout success">
+        <p>Logged In With:</p>
+        <table>
+          <tbody>
+            <tr>
+              <td>Auth Token</td>
+              <td>{{token}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    {{/if}}
+
+    <h4>Enter Your Auth Information</h4>
+    <label>
+      Auth Token (<i>'1234'</i> if Transferring w/ Mirage, or <i>'9999'</i> if accepting as no-name user)
+      {{input class="text-large-2" type="text" value=token placeholder="ex: 05e9767c-3b83-4b61-8654-b40d0760a1ec"}}
+    </label>
+    <p class="help-text">
+      <a href={{getTokenUrl}}>(Get an Auth Token)</a>
+    </p>
+
+    <button type="button" class="success button"
+      disabled={{not userInfoIsChanged}} {{action 'saveUserInfo'}}>
+      "Log In"
+    </button>
+
+    {{#if session.isAuthenticated}}
+      <h4>Navigate to Transfer Tickets</h4>
+
+      <label>
+        Order ID (&quot;1&quot; if Mirage)
+        {{input class="text-large-2" type="text" value=saleCode placeholder="ex: 3b83"}}
+      </label>
+
+      <label>
+        Event ID (&quot;1&quot; if Mirage; &quot;3&quot; if you want the transfer to fail, &quot;4&quot; if the transfer fails to load)<br>
+        (Use email &quot;transfertome@ticketfly.com&quot; to trigger transfer to self error)
+        {{input class="text-large-2" type="text" value=eventId placeholder="ex: 3b83"}}
+      </label>
+
+      <button type="button" class="button"
+        disabled={{not (and saleCode eventId)}} {{action 'visitTransfer'}}>
+        Transfer Tickets
+      </button>
+
+      <h4>Navigate to Accept Tickets</h4>
+
+      <label>
+        Transfer ID (&quot;6&quot; if Mirage; &quot;7&quot; for a failure; &quot;8&quot; for a cancelled transfer; &quot;9&quot; for a scanned transfer; &quot;10&quot; for a same-user acceptance)
+        {{input class="text-large-2" type="text" value=transferId placeholder="ex: 3b83"}}
+      </label>
+
+      <label>
+        Acceptance Token (&quot;1234&quot; if Mirage)
+        {{input class="text-large-2" type="text" value=acceptanceToken placeholder="ex: 3b83"}}
+      </label>
+
+      <button type="button" class="button"
+        disabled={{not transferId}} {{action 'visitAccept'}}>
+        Accept Tickets
+      </button>
+    {{/if}}
+  </div>
+</div>

@@ -1,0 +1,1 @@
+export { default } from 'ff-checkbox/components/ff-checkbox';

@@ -1,0 +1,7 @@
+:not(:last-child).bordered-child {
+  border-bottom: 4px solid $n1;
+}
+
+:not(:last-child).thin-bordered-child {
+  border-bottom: 1px solid $n1;
+}

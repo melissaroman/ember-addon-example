@@ -1,0 +1,14 @@
+<div class="padding-4 padding-sides-6 border-bottom flex flex--align-center">
+  <h2 class="flex--grow-1 margin-bottom-0 text-n8">
+    {{t "marketing.terms_and_conditions"}}
+  </h2>
+  {{#link-to "new.modal.confirm"
+    class="text-i5 text-large-1"
+    hook="tta_confirmation_modal_tandc_back"
+    replace=true}}
+    {{t "actions.back"}}
+  {{/link-to}}
+</div>
+<div class="padding-4 text-n6" data-test={{hook "tta_confirmation_modal_tandc_text"}}>
+  {{t "terms_and_conditions.transfer"}}
+</div>

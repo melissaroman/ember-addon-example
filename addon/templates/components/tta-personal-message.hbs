@@ -1,0 +1,19 @@
+{{#liquid-if isAddingMessage use="fade"}}
+  {{textarea
+    class="margin-bottom-1 resize-none text-large-2"
+    rows="3"
+    value=(readonly message)
+    key-up=(action "updateMessage")
+    maxlength=maxlength
+    placeholder=(t "transfer_request.personal_message_placeholder")
+    hook="tta_personal_message_input"}}
+  <div class="flex flex__row-reverse ">
+    <a {{action "toggleMessage"}} class="text-n6" data-test={{hook "tta_personal_message_clear"}}>
+      {{t "transfer_request.clear_message"}}
+    </a>
+  </div>
+{{else}}
+  <a {{action "toggleMessage"}} class="text-n6" data-test={{hook "tta_personal_message_add"}}>
+    {{t "transfer_request.add_personal_message"}}
+  </a>
+{{/liquid-if}}

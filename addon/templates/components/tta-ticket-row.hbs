@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="columns shrink padding-0">
+    {{#if transferable}}
+      {{ff-checkbox checked=selected hook=(hook "tta_ticket_row_checkbox" checked=selected)}}
+    {{else}}
+      <div class="checkbox-stub"></div>
+    {{/if}}
+  </div>
+
+  <div class="columns expand padding-left-4 small-collapse {{if ticket.transfer.isTransferred "opacity-05"}}" data-test={{hook "tta_ticket_row_description_column"}}>
+    <strong class="text-n8" data-test={{hook "tta_ticket_row_variant_description"}}>
+      {{ticket.variantName}}
+    </strong>
+
+    {{#with (tta-section-details ticket.properties) as |sectionDetails|}}
+      <div class="text-n6" data-test={{hook "tta_ticket_row_section_details"}}>
+        {{sectionDetails}}
+      </div>
+    {{/with}}
+
+    {{#if ticket.code}}
+      <div class="text-n6" data-test={{hook "tta_ticket_row_code"}}>
+        {{t "ticket.barcode"}} {{barcode-obfuscator ticket.code}}
+      </div>
+    {{/if}}
+
+    {{#if (and media.isMobile (not transferable))}}
+      {{tta-ticket-status ticket=ticket}}
+    {{/if}}
+  </div>
+
+  {{#if (and media.isGreaterThanMobile (not transferable))}}
+    {{tta-ticket-status class="columns shrink text-align-right align-middle" ticket=ticket}}
+  {{/if}}
+</div>

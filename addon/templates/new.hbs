@@ -1,0 +1,29 @@
+{{#liquid-wormhole class="tta-modal-container full-screen-modal"}}
+  {{#tta-block-body-scroll class="tta-modal"}}
+    {{#tta-topbar as |bar|}}
+      {{bar.title (t "topbar.transfer")}}
+      {{bar.action (t headerTranslationKey)
+        hook="tta_close_transfer_app"
+        action=(route-action "closeTransfers")}}
+    {{/tta-topbar}}
+
+    <div class="tta-modal-main flex flex--justify-center {{if media.isMobile "padding-sides-2"}}">
+      <div class="content-row-belt flex--shrink-1 flex--grow-0 flex--large-belt-basis">
+        {{#if error}}
+          {{tta-transfer-error}}
+        {{else}}
+          {{tta-transfer
+            event=model.event
+            tickets=model.tickets
+            user=model.user
+            transferToEmail=transferToEmail
+            transferMessage=transferMessage
+            selectedTickets=selectedTickets
+            submit-transfer=(action "submitTransfer")}}
+        {{/if}}
+      </div>
+    </div>
+
+    {{outlet}}
+  {{/tta-block-body-scroll}}
+{{/liquid-wormhole}}

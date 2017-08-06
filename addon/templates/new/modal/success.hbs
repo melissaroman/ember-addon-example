@@ -1,0 +1,19 @@
+<div class="padding-5 text-n8 text-align-center">
+  <div class="flex flex--justify-center margin-top-10 margin-bottom-3">
+    <div class="circled-icon-large background-g5" data-circle-mask-target="true">
+      <i class="tf-check text-n0 text-size-icon-large"></i>
+    </div>
+  </div>
+  <h2 class="text-large-7 gibson horizontally-centered margin-bottom-10" data-test={{hook "tta_confirmation_modal_success_message"}}>
+    {{t "transfer_request.sent_successful"}}
+  </h2>
+  <p class="horizontally-centered text-large-4 margin-bottom-0 semi-bold text-n7">
+    {{model.email}}
+  </p>
+  <p class="horizontally-centered text-small-1 text-n7 large-belt margin-bottom-10">
+    {{t "transfer_request.sent_successful_message"}}
+  </p>
+  {{#link-to "new" class="button primary expanded text-spacing-2 text-large-2 margin-bottom-0" hook="tta_confirmation_success_done" replace=true}}
+    {{t "actions.done"}}
+  {{/link-to}}
+</div>

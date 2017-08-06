@@ -1,0 +1,10 @@
+{{#each-in (group-by "variantName" tickets) as |variantName variantTickets|}}
+  {{#each variantTickets as |ticket index|}}
+    {{tta-accept-ticket-row
+      ticket=ticket
+      index=index
+      ticketsLength=variantTickets.length
+      class=(concat "padding-ends-2 thin-bordered-child margin-sides-" (if media.isMobile "4" "6"))
+    }}
+  {{/each}}
+{{/each-in}}

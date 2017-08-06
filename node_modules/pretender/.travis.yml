@@ -1,0 +1,23 @@
+sudo: false
+language: node_js
+node_js:
+  - "4.2"
+  - "5"
+  - "6"
+  - "8"
+
+before_install:
+  - "npm config set spin false"
+  - "npm install -g npm@^5"
+  - "npm config set spin false"
+
+script: npm run test-ci
+install:
+  - node --version
+  - npm --version
+  - git --version
+  - npm install
+
+
+after_script:
+  - find ./coverage/Phantom* -name "lcov.info" -exec cat {} \; | coveralls

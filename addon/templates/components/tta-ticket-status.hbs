@@ -1,0 +1,9 @@
+{{#with (tta-transfer-state ticket.transferState ticket.transfer) as |transferStatus|}}
+  <p class="text-b5 margin-bottom-0" data-test={{hook "tta_ticket_row_transfer_status"}}>{{transferStatus}}</p>
+{{/with}}
+
+{{#if ticket.transfer.isCancelable}}
+  {{#link-to "new.modal.cancel" ticket.transfer.id class="text-r5" hook="tta_ticket_row_cancel" replace=true}}
+    {{t "actions.cancel"}}
+  {{/link-to}}
+{{/if}}
